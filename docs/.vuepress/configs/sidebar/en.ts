@@ -10,5 +10,9 @@ export const en: SidebarConfig = {
       text: 'API',
       children: ['/guide/api.md'],
     },
+    {
+      text: 'PetStore',
+      children: ['/petstore/'],
+    },
   ],
 }
