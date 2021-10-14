@@ -1,5 +1,5 @@
 import type { NavbarConfig } from '@vuepress/theme-default'
-import { version } from '../meta'
+// import { version } from '../meta'
 
 export const en: NavbarConfig = [
   {
@@ -28,8 +28,13 @@ export const en: NavbarConfig = [
       },
     ],
   },
-  {
-    text: `v${version}`,
-    children: [],
-  },
+  // {
+  //   text: `v${version}`,
+  //   children: [
+  //     {
+  //       text: 'v0.1',
+  //       link: '#'
+  //     }
+  //   ],
+  // },
 ]

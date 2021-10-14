@@ -7,7 +7,6 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineUserConfig<DefaultThemeOptions>({
   base: '/',
-
   head: [
     [
       'link',
@@ -54,37 +53,25 @@ export default defineUserConfig<DefaultThemeOptions>({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Syrus 4 Docs',
-      description: 'Syrus 4 Documentation',
+      title: 'DCT Docs',
+      description: 'CONNECT | DEVELOP | MANAGE | DEPLOY',
     },
-    '/es/': {
-      lang: 'es-ES',
-      title: 'Docs para Syrus 4',
-      description: 'Documentacion para el Syrus 4',
-    },
+    // '/es/': {
+    //   lang: 'es-ES',
+    //   title: 'Docs para Syrus 4',
+    //   description: 'Documentacion para el Syrus 4',
+    // },
   },
 
   bundler:
-    // specify bundler via environment variable
     process.env.DOCS_BUNDLER ??
-    // use vite in dev, use webpack in prod
     (isProd ? '@vuepress/webpack' : '@vuepress/vite'),
 
   themeConfig: {
     logo: '/images/hero.png',
-
-    repo: 'vuepress/vuepress-next',
-
+    repo: 'lreyn/docs.git',
     docsDir: 'docs',
-
-    // theme-level locales config
     locales: {
-      /**
-       * English locale config
-       *
-       * As the default locale of @vuepress/theme-default is English,
-       * we don't need to set all of the locale fields
-       */
       '/': {
         // navbar
         navbar: navbar.en,
@@ -102,45 +89,43 @@ export default defineUserConfig<DefaultThemeOptions>({
         contributors: true,
         contributorsText: 'Contributors',
       },
+      // '/es/': {
+      //   // navbar
+      //   navbar: navbar.es,
+      //   selectLanguageName: 'Español',
+      //   selectLanguageText: 'Elige un idioma',
+      //   selectLanguageAriaLabel: 'Elige un idioma',
 
-      '/es/': {
-        // navbar
-        navbar: navbar.es,
-        selectLanguageName: 'Español',
-        selectLanguageText: 'Elige un idioma',
-        selectLanguageAriaLabel: 'Elige un idioma',
+      //   // sidebar
+      //   sidebar: sidebar.es,
 
-        // sidebar
-        sidebar: sidebar.es,
+      //   // page meta
+      //   editLinkText: 'Edita esta página en GitHub',
+      //   lastUpdatedText: 'Última actualización',
+      //   contributorsText: 'Contribuyente',
 
-        // page meta
-        editLinkText: 'Edita esta página en GitHub',
-        lastUpdatedText: 'Última actualización',
-        contributorsText: 'Contribuyente',
+      //   // custom containers
+      //   tip: 'Consejo',
+      //   warning: 'Aviso',
+      //   danger: 'Peligro',
 
-        // custom containers
-        tip: 'Consejo',
-        warning: 'Aviso',
-        danger: 'Peligro',
+      //   // 404 page
+      //   notFound: [
+      //     'Nada aquí',
+      //     '¿Por qué estamos aquí?',
+      //     'Esta es una página 404',
+      //     'Parece que ingresamos el enlace incorrecto',
+      //   ],
+      //   backToHome: 'Volver a la página de inicio',
 
-        // 404 page
-        notFound: [
-          'Nada aquí',
-          '¿Por qué estamos aquí?',
-          'Esta es una página 404',
-          'Parece que ingresamos el enlace incorrecto',
-        ],
-        backToHome: 'Volver a la página de inicio',
-
-        // a11y
-        openInNewWindow: 'Abrir en Nueva ventana',
-        toggleDarkMode: 'Alternar el modo nocturno',
-        toggleSidebar: 'Alternar barra lateral',
-      },
+      //   // a11y
+      //   openInNewWindow: 'Abrir en Nueva ventana',
+      //   toggleDarkMode: 'Alternar el modo nocturno',
+      //   toggleSidebar: 'Alternar barra lateral',
+      // },
     },
 
     themePlugins: {
-      // only enable git plugin in production mode
       git: isProd,
     },
   },
@@ -165,17 +150,16 @@ export default defineUserConfig<DefaultThemeOptions>({
         searchParameters: {
           facetFilters: ['tags:v2'],
         },
-        locales: {
-          '/es/': {
-            placeholder: 'Buscar documentos',
-          },
-        },
+        // locales: {
+        //   '/es/': {
+        //     placeholder: 'Buscar documentos',
+        //   },
+        // },
       },
     ],
     [
       '@vuepress/plugin-google-analytics',
       {
-        // we have multiple deployments, which would use different id
         id: process.env.DOCS_GA_ID,
       },
     ],
