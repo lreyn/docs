@@ -1,27 +1,27 @@
 import type { NavbarConfig } from '@vuepress/theme-default'
 import { version } from '../meta'
 
-export const en: NavbarConfig = [
+export const es: NavbarConfig = [
   {
-    text: 'Guide',
-    link: '/guide/',
+    text: 'Guía',
+    link: '/es/guide/',
   },
   {
-    text: 'Pegasus IoT Platform',
+    text: 'Plataforma Pegasus IoT',
     children: [
       {
         text: 'Pegasus',
         children: [
           {
-            text: 'Login',
+            text: 'Ingresar',
             link: 'https://cloud.pegasusgateway.com/v2',
           },
           {
-            text: 'API Docs',
+            text: 'Documentacion APIs',
             link: 'https://docs.pegasusgateway.com',
           },
           {
-            text: 'API Reference',
+            text: 'Referencia de API',
             link: 'https://cloud.pegasusgateway.com/api-static/docs',
           },
         ],

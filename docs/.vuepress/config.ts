@@ -46,21 +46,21 @@ export default defineUserConfig<DefaultThemeOptions>({
         color: '#3eaf7c',
       },
     ],
-    ['meta', { name: 'msapplication-TileColor', content: '#3eaf7c' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#005596' }],
+    ['meta', { name: 'theme-color', content: '#005596' }],
   ],
 
   // site-level locales config
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator',
+      title: 'Syrus 4 Docs',
+      description: 'Syrus 4 Documentation',
     },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器',
+    '/es/': {
+      lang: 'es-ES',
+      title: 'Docs para Syrus 4',
+      description: 'Documentacion para el Syrus 4',
     },
   },
 
@@ -88,50 +88,54 @@ export default defineUserConfig<DefaultThemeOptions>({
       '/': {
         // navbar
         navbar: navbar.en,
+        selectLanguageText: '🌎',
 
         // sidebar
         sidebar: sidebar.en,
+        sidebarDepth: 3,
 
         // page meta
+        editLink: true,
         editLinkText: 'Edit this page on GitHub',
+        lastUpdated: true,
+        lastUpdatedText: 'Last Updated',
+        contributors: true,
+        contributorsText: 'Contributors',
       },
 
-      /**
-       * Chinese locale config
-       */
-      '/zh/': {
+      '/es/': {
         // navbar
-        navbar: navbar.zh,
-        selectLanguageName: '简体中文',
-        selectLanguageText: '选择语言',
-        selectLanguageAriaLabel: '选择语言',
+        navbar: navbar.es,
+        selectLanguageName: 'Español',
+        selectLanguageText: 'Elige un idioma',
+        selectLanguageAriaLabel: 'Elige un idioma',
 
         // sidebar
-        sidebar: sidebar.zh,
+        sidebar: sidebar.es,
 
         // page meta
-        editLinkText: '在 GitHub 上编辑此页',
-        lastUpdatedText: '上次更新',
-        contributorsText: '贡献者',
+        editLinkText: 'Edita esta página en GitHub',
+        lastUpdatedText: 'Última actualización',
+        contributorsText: 'Contribuyente',
 
         // custom containers
-        tip: '提示',
-        warning: '注意',
-        danger: '警告',
+        tip: 'Consejo',
+        warning: 'Aviso',
+        danger: 'Peligro',
 
         // 404 page
         notFound: [
-          '这里什么都没有',
-          '我们怎么到这来了？',
-          '这是一个 404 页面',
-          '看起来我们进入了错误的链接',
+          'Nada aquí',
+          '¿Por qué estamos aquí?',
+          'Esta es una página 404',
+          'Parece que ingresamos el enlace incorrecto',
         ],
-        backToHome: '返回首页',
+        backToHome: 'Volver a la página de inicio',
 
         // a11y
-        openInNewWindow: '在新窗口打开',
-        toggleDarkMode: '切换夜间模式',
-        toggleSidebar: '切换侧边栏',
+        openInNewWindow: 'Abrir en Nueva ventana',
+        toggleDarkMode: 'Alternar el modo nocturno',
+        toggleSidebar: 'Alternar barra lateral',
       },
     },
 
@@ -162,8 +166,8 @@ export default defineUserConfig<DefaultThemeOptions>({
           facetFilters: ['tags:v2'],
         },
         locales: {
-          '/zh/': {
-            placeholder: '搜索文档',
+          '/es/': {
+            placeholder: 'Buscar documentos',
           },
         },
       },

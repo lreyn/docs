@@ -1,9 +1,9 @@
 import type { SidebarConfig } from '@vuepress/theme-default'
 
-export const en: SidebarConfig = {
-  '/guide/': [
+export const zh: SidebarConfig = {
+  '/es/guide/': [
     {
-      text: 'Guide',
+      text: 'Guía',
       children: ['/guide/README.md'],
     },
   ],
