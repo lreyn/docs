@@ -1,6 +1,4 @@
-<!--- vuepress -->
-
-# API
+# REST API
 The Syrus 4 API specifies how software components can interact with the device.
 
 To use the documentation you'll need to replace `ipAddress` from the URL with the actual IP address assigned to your Syrus 4 device.

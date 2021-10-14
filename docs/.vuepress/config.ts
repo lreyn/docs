@@ -68,6 +68,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     (isProd ? '@vuepress/webpack' : '@vuepress/vite'),
 
   themeConfig: {
+    servers: ['http://172.19.18.132:8082'],
     logo: '/images/hero.png',
     repo: 'lreyn/docs.git',
     docsDir: 'docs',
@@ -79,7 +80,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         // sidebar
         sidebar: sidebar.en,
-        sidebarDepth: 3,
+        sidebarDepth: 1,
 
         // page meta
         editLink: true,

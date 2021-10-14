@@ -1,0 +1,187 @@
+{
+  "geometry_field": {
+    "title": "GeoJson point field",
+    "description": "GeoJson point field for filtering",
+    "type": "object",
+    "properties": {
+      "areas.geometry": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "boolean_field": {
+    "title": "Boolean field",
+    "description": "boolean field for exixts operator",
+    "type": "object",
+    "minProperties": 1,
+    "maxProperties": 1,
+    "pattern": "^[\\w\\.\\[\\]_-]+$",
+    "properties": {
+      "<object.name>": {
+        "type": "boolean"
+      }
+    }
+  },
+  "array_field": {
+    "title": "Array field",
+    "description": "Array field for filtering",
+    "type": "object",
+    "pattern": "^[\\w\\.\\[\\]_-]+$",
+    "properties": {
+      "<object.atribute>": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "sort": {
+    "type": "object",
+    "description": "The API allows to decide how to order of the results. To do that it is necessary to include in the JSON request the <order> object.",
+    "properties": {
+      "parameters": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Name of parameter defined in the Default Datamodels",
+              "type": "string"
+            },
+            "type": {
+              "description": "Enumeration string with ordering type. Valid values are:",
+              "type": "string",
+              "enum": ["ASCENDING", "DESCENDING"]
+            }
+          },
+          "required": ["name", "type"]
+        }
+      }
+    }
+  },
+  "select": {
+    "type": "array",
+    "description": "Array of parameters to be selected. You can select only the parameters you like to retrieve in the response. By default (if is not included the select object in the request) the response to a request include all fields for each searched object. The select clause only can be used for entity searching and must not be empty. ",
+    "minItems": 1,
+    "items": {
+      "type": "object",
+      "required": ["name", "fields"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "String. Name of the datastream in the Default Datamodels or datamodels defined by the user."
+        },
+        "fields": {
+          "type": "array",
+          "description": "Array of strings with the name of the fields to be retrieved.",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "alias": {
+                "type": "string",
+                "description": "String. Shortname to replace the full name of the parameter when a CSV format is required. Example: * Using <alias> = <imei>                 * The <device.communicationModules[].mobile.imei> becomes <imei> in the CSV header.  If this field doesn’t exist, it will appear the full datastream name in the csv header In the csv format this field is shown, but in json format is ignored. "
+              }
+            },
+            "required": ["field"]
+          }
+        }
+      }
+    }
+  },
+  "group": {
+    "type": "object",
+    "description": "It is possible to make groupings by some parameters of the Default Datamodels, thanks to group clause in the filter. This clause is optional",
+    "required": ["parameters"],
+    "properties": {
+      "parameters": {
+        "description": "Array of grouping parameters.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the parameter in the Default Datamodels."
+            }
+          }
+        }
+      }
+    }
+  },
+  "limit": {
+    "title": "limit",
+    "description": "Limits for iot searching",
+    "type": "object",
+    "properties": {
+      "start": {
+        "description": "Page number you request. The count starts with number 1",
+        "type": "integer",
+        "minimum": 1
+      },
+      "size": {
+        "description": "Number of entities that you can see in the page",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2000
+      }
+    }
+  },
+  "Error": {
+    "type": "object",
+    "required": ["code", "message"],
+    "properties": {
+      "code": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "message": {
+        "type": "string"
+      },
+      "context": {
+        "type": "array",
+        "description": "context of the error, attempts to clarify the point where the error occurs",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "page": {
+    "type": "object",
+    "properties": {
+      "limit": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "number",
+            "description": "Page number you request. The count starts with number 1"
+          },
+          "size": {
+            "type": "number",
+            "description": "Number of entities that you can see in the page"
+          }
+        }
+      }
+    }
+  }
+}

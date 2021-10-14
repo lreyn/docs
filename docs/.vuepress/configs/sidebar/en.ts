@@ -6,5 +6,9 @@ export const en: SidebarConfig = {
       text: 'Guide',
       children: ['/guide/README.md'],
     },
+    {
+      text: 'API',
+      children: ['/guide/api.md'],
+    },
   ],
 }
