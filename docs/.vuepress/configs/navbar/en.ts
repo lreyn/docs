@@ -28,13 +28,4 @@ export const en: NavbarConfig = [
       },
     ],
   },
-  // {
-  //   text: `v${version}`,
-  //   children: [
-  //     {
-  //       text: 'v0.1',
-  //       link: '#'
-  //     }
-  //   ],
-  // },
 ]

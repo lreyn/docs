@@ -12,7 +12,7 @@ export const en: SidebarConfig = {
     },
     {
       text: 'PetStore',
-      children: ['/petstore/'],
+      children: ['/petstore/README.md'],
     },
   ],
 }

@@ -56,17 +56,10 @@ export default defineUserConfig<DefaultThemeOptions>({
       title: 'DCT Docs',
       description: 'CONNECT | DEVELOP | MANAGE | DEPLOY',
     },
-    // '/es/': {
-    //   lang: 'es-ES',
-    //   title: 'Docs para Syrus 4',
-    //   description: 'Documentacion para el Syrus 4',
-    // },
   },
-
   bundler:
     process.env.DOCS_BUNDLER ??
     (isProd ? '@vuepress/webpack' : '@vuepress/vite'),
-
   themeConfig: {
     servers: ['http://172.19.18.132:8082'],
     logo: '/images/hero.png',
@@ -90,42 +83,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         contributors: true,
         contributorsText: 'Contributors',
       },
-      // '/es/': {
-      //   // navbar
-      //   navbar: navbar.es,
-      //   selectLanguageName: 'Español',
-      //   selectLanguageText: 'Elige un idioma',
-      //   selectLanguageAriaLabel: 'Elige un idioma',
-
-      //   // sidebar
-      //   sidebar: sidebar.es,
-
-      //   // page meta
-      //   editLinkText: 'Edita esta página en GitHub',
-      //   lastUpdatedText: 'Última actualización',
-      //   contributorsText: 'Contribuyente',
-
-      //   // custom containers
-      //   tip: 'Consejo',
-      //   warning: 'Aviso',
-      //   danger: 'Peligro',
-
-      //   // 404 page
-      //   notFound: [
-      //     'Nada aquí',
-      //     '¿Por qué estamos aquí?',
-      //     'Esta es una página 404',
-      //     'Parece que ingresamos el enlace incorrecto',
-      //   ],
-      //   backToHome: 'Volver a la página de inicio',
-
-      //   // a11y
-      //   openInNewWindow: 'Abrir en Nueva ventana',
-      //   toggleDarkMode: 'Alternar el modo nocturno',
-      //   toggleSidebar: 'Alternar barra lateral',
-      // },
     },
-
     themePlugins: {
       git: isProd,
     },
